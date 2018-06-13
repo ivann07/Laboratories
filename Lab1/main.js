@@ -1,227 +1,228 @@
-// Вывести alert внешним скриптом
-alert("Я – JavaScript!");
+/*
+ПЕРВЫЙ БЛОК ЗАДАНИЙ
+*/
 
-// Работа с переменными
-let admin;
-const NAME = "Василий";
-admin = NAME;
-alert(admin);
+alert("Я – JavaScript!");  // Команда alert выводится с внешним скриптом.
 
-// Объявление переменных
-const PLANET1 = "Земля";
-const NAME1 = "Петя";
+let right; // Создадим переменную right
+const TEAM = "Спартак"; // Создадим константу TEAM
+right = TEAM; // Присвоим переменной right значение TEAM
+alert(right); // выводим через alert
 
-const SIGN_IN_CANCELED = "Вход отменен";
 
-/**
- * Runs all prompts using functions at once
- */
-function runAllPrompts() {
-    detectTheSign2();
-    signInOperator();
-    numberMoreThan100();
-    ifs2Switch();
+// Работа с константами
+const Meal = "Яичница";
+const Work = "Программист";
+const City = "Москва";
+const TRANSACTION_REJECTED = "Транзакция отменена";
+
+// Запустим все функции, с помощью определенной
+function launchFunks() {
+    findLetterA();
+    LessThan20();
+    DividedBy3();
+    Multiplication();
 }
 
-// Проверка стандарта
-/**
- * Checks the original name of JavaScript that has been typed by user
- */
-function checkJavaScriptName() {
-    let jsInput = document.getElementById("text_js_name");
-    const jsInputText = jsInput.value.toString();
-    if (jsInputText !== "ECMAScript") {
-        alert("Не знаете? \"ECMAScript\"!");
+/*
+КОНЕЦ ПЕРВОГО БЛОКА ЗАДАНИЙ
+*/ 
+
+/*
+ВТОРОЙ БЛОК
+*/
+
+// Проверим фаила JavaScript
+function isAjavaScript() {
+    let input_file = document.getElementById("js_file_name");
+    const Text = input_file.value.toString();
+    if (Text !== "ECMAScript") {
+        alert("Не определено \"ECMAScript\"!");
     } else {
-        alert("Верно!");
+        alert("Да, соответствует");
     }
-    jsInput.value = "";
+    input_file.value = "";
 }
 
 
-// Получить знак числа
-/**
- * Detects user typed number sign
- */
-function detectTheSign() {
-    let number = document.getElementById("number");
-    const numberAsText = parseInt(number.value);
-    number.value = "";
-    if (numberAsText === 0) {
+// Определить, какой знак у числа
+function findNumberSign() {
+    let Num = document.getElementById("Number");
+    const TEXT_VALUE = parseInt(Num.value);
+    Num.value = "";
+    if (TEXT_VALUE === 0) {
         alert("0");
         return;
     }
-    else if (numberAsText < 0){
-        alert("-1");
+    else if (TEXT_VALUE < 0){
+        alert("Negative");
         return;
     }
-    alert("1");
+    alert("Positive");
 }
 
-// Получить знак числа через prompt
-/**
- * Detects user typed number sign using prompt
- */
-function detectTheSign2() {
-    let number = prompt('Введите число', String(0));
+// Теперь получим знак числа, используя prompt
+function findNumberPrompt() {
+    let Num = prompt('Enter a number: ', String(0));
     if (number > 0) {
-        alert( 1 );
+        alert("Positive");
     } else if (number < 0) {
-        alert( -1 );
+        alert("Negative");
     } else {
-        alert( 0 );
+        alert("0");
     }
 }
 
-// Проверка логина
-/**
- * Checks login and password
- */
-function signIn() {
-    let login = document.getElementById("login");
-    let password = document.getElementById("password");
-    let passwordH5 = document.getElementById("password_h5");
-    const loginValue = login.value;
-    const passwordValue = password.value;
-    if ((loginValue === "Админ") && (passwordValue === "")) {
-        passwordH5.style.visibility = "visible";
-        password.style.visibility = "visible";
+/*
+КОНЕЦ ВТОРОГО БЛОКА ЗАДАНИЙ
+*/
+
+/*
+ТРЕТИЙ БЛОК
+*/
+
+/*
+Создадим форму для проверки логина и пароля
+*/
+function CheckSignInPassword() {
+    let log = document.getElementById("login");
+    let pass = document.getElementById("password");
+    let passH5 = document.getElementById("password_h5");
+    const log_contain = log.value;
+    const pass_contain = pass.value;
+    if ((log_contain === "Admin") && (passwordValue === "")) {
+        passH5.style.visibility = "visible";
+        pass.style.visibility = "visible";
     }
-    if (loginValue !== "Админ") {
-        alert("Я вас не знаю");
+    if (log_contain !== "Admin") {
+        alert("Данные для входа не верны");
         resetSignInObjects();
     }
-    if (((loginValue === "Админ") && (passwordValue !== ""))) {
-        if (passwordValue === "Черный Властелин") {
-            alert("Добро пожаловать!");
+    if (((log_contain === "Admin") && (pass_contain !== ""))) {
+        if (pass_contain === "qwe123") {
+            alert("Hello World!");
         }
         else {
-            alert("Пароль не верен");
+            alert("Illegal password");
         }
         resetSignInObjects();
     }
 }
 
-/**
- * Sets default values to sign in objects
- */
-function resetSignInObjects() {
-    let login = document.getElementById("login");
-    let password = document.getElementById("password");
-    let passwordH5 = document.getElementById("password_h5");
-    login.value = "";
-    password.value = "";
-    passwordH5.style.visibility = "hidden";
-    password.style.visibility = "hidden";
+// Зададим определенные значения  переменным в объекте
+function SetSignInObject() {
+    let log = document.getElementById("login");
+    let pass = document.getElementById("password");
+    let passH5 = document.getElementById("password_h5");
+    log.value = "";
+    pass.value = "";
+    pass.style.visibility = "hidden";
+    pass.style.visibility = "hidden";
 }
 
-/**
- * Sets default values to sign in objects and alerts about sign in cancellation
- */
-function cancelSignIn() {
-    const loginValue = document.getElementById("login").value;
-    const passwordValue = document.getElementById("password").value;
-    if ((loginValue !== "") || (passwordValue !== "")) {
-        resetSignInObjects();
-        alert(SIGN_IN_CANCELED);
+// Вывод ошибки при входе в систему (после определения параметров объекта)
+function SignIn_Cancelation() {
+    const log_contain = document.getElementById("login").value;
+    const pass_contain = document.getElementById("password").value;
+    if ((log_contain !== "") || (pass_contain !== "")) {
+        SetSignInObject();
+        alert("Ошибка при входе в систему");
     }
 }
 
-/**
- * Checks if ESC button pressed and current caller-object value is not empty
- * @param keyCode - pressed key code
- * @param objectValue - object value
- */
-function onKeyDownLoginPassword(keyCode, objectValue) {
+// Проверка, нажата ли определенная клавиша в данный момент
+function OnKeyPressed(keyCode, objectValue) {
     if ((keyCode === 27) && (objectValue !== "")) {
-        cancelSignIn()
+        SignIn__Cancelation()
     }
 }
 
-// Проверка логина через prompt
-/**
- * Checks login and password using prompt
- */
-function signInOperator() {
-    let login = prompt('Введите Логин', '');
-    if (login === 'Админ') {
-        let password = prompt('Введите Пароль', '');
-        if (password === 'Черный Властелин') {
-            alert( 'Добро пожаловать!' );
-        } else if (password == null) { // (*)
-            alert( 'Вход отменен' );
+// Теперь выполним туже самую проверку на логин/пароль, используя prompt
+function signInPrompt() {
+    let log = prompt('Enter login: ', '');
+    if (log === 'Admin') {
+        let pass = prompt('Enter password: ', '');
+        if (pass === 'qwe123') {
+            alert( 'Hello, Admin!' );
+        } else if (pass == null) { 
+            alert( 'Ошибка при входе' );
         } else {
-            alert( 'Пароль неверен' );
+            alert( 'Некорректный пароль' );
         }
-    } else if (login == null) {
-        alert( 'Вход отменён' );
+    } else if (log == null) {
+        alert( 'Ошибка при входе!' );
 
     } else {
-        alert( 'Я вас не знаю' );
+        alert( 'Введите корректные данные' );
     }
 }
 
-// Перепишите 'if' в '?'
-function simpilifyIf() {
-    const a = 7;
-    const b = 8;
-    let result = "";
-    (a + b < 4) ?  result = 'Мало' : result = 'Много';
-    alert('result = ' + result);
+/*
+КОНЕЦ ТРЕТЬЕГО БЛОКА ЗАДАНИЙ
+*/
+
+/*
+ЧЕТВЕРТЫЙ БЛОК ЗАДАНИЙ
+*/
+
+// Используем вместо 'if' знак '?'
+function AnotherWayOfWritingIf() {
+    const Num1 = 1;
+    const Num2 = 2;
+    let Sum = "";
+    (Num1 + Num2 < 4) ?  Sum = 'Меньше' : Sum = 'Больше';
+    alert('Sum = ' + Sum);
 }
 
-// Перепишите 'if..else' в '?'
-function simpilifyIfElse() {
-    const login = "Вася";
-    let message = '';
-    message = (login === 'Вася') ? 'Привет' :
-        (login === 'Директор') ? 'Здравствуйте' :
-            (login === '') ? 'Нет логина' :
+// Используем вместо 'if..else' знак '?'
+function AnotherWayOfWritingIfElse() {
+    const log = "User";
+    let contain = '';
+    contain = (log === 'User') ? 'Hello' :
+        (log === 'Admin') ? 'Nothing Else Matters' :
+            (log === '') ? 'Некорректный логин' :
                 '';
-    alert('message = ' + message);
+    alert('contain = ' + contain);
 }
 
-// Проверка if внутри диапазона
-function checkAge14_90Range() {
-    const age = 18;
-    return ((age >= 14) && (age <= 90));
+// Проверим находится ли число в определенном диапазоне значений
+function HowOldAreYou() {
+    const Age = 21;
+    return ((Age >= 8) && (Age <= 45));
 }
 
-// Проверка if вне диапазона
-function checkAgeNotIn14_90Range() {
-    const age = 18;
-     let result = false;
-     result = !((age >= 14) && (age <= 90));
-     result = ((age < 14) || (age > 90));
-     return result;
+// Проверим, находится ли число за пределом определенного диапазона
+function HowOldAreYou2() {
+    const Age = 21;
+     let Contain = false;
+     Contain = !((Age >= 8) && (Age <= 45));
+     Contain = ((Age < 8) || (Age > 45));
+     return Contain;
 }
 
-// Замените for на while
-function fromFor2While() {
+// Используем вместо 'for' другую 'while'
+function ChangeForToWhile() {
     let i = 0;
-    while (i < 3) {
-        alert("номер " + i + "!");
+    while (i < 10) {
+        alert("Number " + i + ".");
         i++;
     }
 }
 
-// Повторять цикл, пока ввод неверен
-function numberMoreThan100() {
-    let num;
+// Сделаем цикл, который будет повторять до тех пор, пока ввод не будет верен
+function CountUntilOK() {
+    let Number;
     do {
-        num = prompt("Введите число больше 100?", String(0));
-    } while (num <= 100 && num != null);
+        Number = prompt("Enter a number, more than 1500! ", String(0));
+    } while (Number <= 1500 && Number != null);
 }
 
-// Вывести простые числа
-/**
- * Prints all prime numbers from startRange to endRange
- */
-function printPrimeNumbers(startRange, endRange) {
-    let i = startRange;
+// Теперь выведем все простые числа из диапазона
+function alertSimpleNumbers(begin, end) {
+    let i = begin;
     primeWhile:
-        while (i <= endRange) {
-            for (let j = startRange; j < i; j++) {
+        while (i <= end) {
+            for (let j = begin; j < i; j++) {
                 if (i % j === 0) {
                     continue primeWhile;
                 }
@@ -231,26 +232,23 @@ function printPrimeNumbers(startRange, endRange) {
         }
 }
 
-// Напишите "if", аналогичный "switch" using if else construction
-/**
- * Indicates supporting browsers
- */
-function fromSwitch2IfElse() {
-    let browser = "Dolphin";
-    if (browser === 'IE') {
-        alert( 'О, да у вас IE!' );
+// Составим простейшую 'switch'  конструкцию, используя 'if..else'
+function NoMoreSwitch() {
+    let TEAM = "Спартак";
+    if (TEAM === 'ID') {
+        alert( 'Самый титулованный клуб!' );
         return;
     }
-    else if ((browser === 'Chrome') || (browser === 'Firefox') || (browser === 'Safari') || (browser === 'Opera')) {
-        alert('Да, и эти браузеры мы поддерживаем');
+    else if ((TEAM === 'ЦСКА') || (TEAM === 'Шинник') || (TEAM === 'Локомотив') || (TEAM === 'Кубань')) {
+        alert('Неее, лучше болейте за Спартак!');
     }
-    alert('Мы надеемся, что и в вашем браузере все ок!');
+    alert('Спартак чемпион!');
 }
 
-// Переписать if'ы в switch
-function ifs2Switch() {
-    let a =+ prompt('a?', '');
-    switch (a) {
+// Теперь, сделаем обратное, и напишем вместо 'if..else' конструкции 'switch...case'
+function SwitchIsOnDutyAgain() {
+    let Number =+ prompt('Number?', '');
+    switch (Number) {
         case 0:
             alert( 0 );
             break;
@@ -258,13 +256,21 @@ function ifs2Switch() {
             alert( 1 );
             break;
         case 2:
+            alert( 2 );
+            break;
         case 3:
             alert( '2,3' );
             break;
     }
 }
 
+/*
 
+КОНЕЦ ЧЕТВЕРТОГО БЛОКА
+
+*/
+
+// КОНЕЦ ПЕРВОЙ ЛАБОРАТОРНОЙ РАБОТЫ
 
 
 
